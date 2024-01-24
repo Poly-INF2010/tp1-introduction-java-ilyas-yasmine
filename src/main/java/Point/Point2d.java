@@ -38,7 +38,7 @@ public class Point2d extends AbstractPoint {
      */
     @Override
     public Point2d translate(Double[] translateVector) {
-        return new Point2d(this.X + translateVector[0], this.Y + translateVector[1]);
+        return new Point2d(X() + translateVector[0], Y() + translateVector[1]);
     }
 
     /** TODO
@@ -47,7 +47,7 @@ public class Point2d extends AbstractPoint {
      * @return Translated point
      */
     public Point2d translate(Point2d translateVector) {
-        return null;
+        return new Point2d(X() + translateVector.X(), Y() + translateVector.Y());
     }
 
     /** TODO
@@ -76,7 +76,7 @@ public class Point2d extends AbstractPoint {
      */
     @Override
     public Point2d divide(Double divider) {
-        return null;
+        return new Point2d(X() / divider, Y() / divider);
     }
 
     /** TODO
@@ -86,7 +86,7 @@ public class Point2d extends AbstractPoint {
      */
     @Override
     public Point2d multiply(Double multiplier) {
-        return null;
+        return divide(1/multiplier);
     }
 
     /** TODO
@@ -96,7 +96,7 @@ public class Point2d extends AbstractPoint {
      */
     @Override
     public Point2d add(Double adder) {
-        return null;
+        return new Point2d(X() + adder, Y() + adder);
     }
 
     /** TODO
@@ -104,6 +104,6 @@ public class Point2d extends AbstractPoint {
      */
     @Override
     public Point2d clone() {
-        return null;
+        return new Point2d(X(), Y());
     }
 }
