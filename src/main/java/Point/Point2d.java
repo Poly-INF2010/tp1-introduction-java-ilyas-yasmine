@@ -61,8 +61,8 @@ public class Point2d extends AbstractPoint {
     @Override
     public Point2d rotate(Double[][] rotationMatrix) {
         Double[] oldVec = new Double[] {this.vector[X], this.vector[Y]};
-        this.vector[X] = oldVec[0] * rotationMatrix[0][0] + oldVec[1] * rotationMatrix[1][0];
-        this.vector[Y] = oldVec[0] * rotationMatrix[0][1] + oldVec[1] * rotationMatrix[1][1];
+        this.vector[X] = oldVec[X] * rotationMatrix[0][0] + oldVec[Y] * rotationMatrix[0][1];
+        this.vector[Y] = oldVec[X] * rotationMatrix[1][0] + oldVec[Y] * rotationMatrix[1][1];
         return this;
     }
 
@@ -72,7 +72,11 @@ public class Point2d extends AbstractPoint {
      * @return Rotated point
      */
     public Point2d rotate(Double angle) {
-        return null;
+        Double[][] rotationMat = {
+                {Math.cos(angle), -Math.sin(angle)},
+                {Math.sin(angle),  Math.cos(angle)}
+        };
+        return rotate(rotationMat);
     }
 
     /** TODO
