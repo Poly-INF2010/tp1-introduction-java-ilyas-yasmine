@@ -78,13 +78,8 @@ public class BaseShape extends Transform implements Cloneable {
      */
     public BaseShape remove(BaseShape shape) {
         Collection<Point2d> shapeCoords = shape.getCoords();
-        System.out.println("Shape coords before removal: " + this.coords);
-
         removeAll(shapeCoords);
-
-        System.out.println("Shape coords after removal: " + this.coords);
         return this;
-
     }
 
     /** TODO
